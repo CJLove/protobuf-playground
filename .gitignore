@@ -4,6 +4,9 @@
 *.o
 *.obj
 
+# Protobuf generated files
+*pb*
+
 # Precompiled Headers
 *.gch
 *.pch

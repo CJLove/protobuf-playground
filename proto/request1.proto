@@ -1,0 +1,9 @@
+
+syntax = "proto2";
+
+package message;
+
+message Request1 {
+    optional string arg1 = 1;
+    optional string arg2 = 2;
+}

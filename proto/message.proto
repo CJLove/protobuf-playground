@@ -1,0 +1,59 @@
+//
+// message.proto: protobuf definition for messages (requests/responses)
+//
+syntax = "proto2";
+
+import "request1.proto";
+import "request2.proto";
+
+package message;
+
+message Message{
+    enum CommandType {
+        REQ_1= 1;
+        REQ_2 = 2;
+        REQ_3 = 3;
+
+        BASE = 101;
+        RESP_1 = 102;
+        RESP_2 = 103;
+        RESP_3 = 104;
+    }
+
+    required CommandType commandType = 1;
+
+    optional Request1 request1 = 10;
+    optional Request2 request2 = 11;
+
+    message Request3 {
+        optional string arg1 = 1;
+    }
+    optional Request3 request3 = 12;
+
+    message BaseResponse {
+        required int32 commandResponse = 1;
+        required int32 value = 2;
+    }
+    optional BaseResponse baseResponse = 101;
+
+    message Response1 {
+        required BaseResponse response = 1;
+    }
+    optional Response1 response1 = 102;
+
+    message Response2 {
+        required BaseResponse response = 1;
+        optional string arg1 = 2;
+    }
+    optional Response2 response2 = 103;
+
+    message Response3 {
+        required BaseResponse response = 1;
+        optional string arg1 = 2;
+        optional string arg2 = 3;
+    }
+    optional Response3 response3 = 104;
+}
+
+   
+        
